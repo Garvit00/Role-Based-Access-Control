@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "1732638902879",
+      "name": "prem singh",
+      "role": "Tech Lead",
+      "status": "Active"
+    },
+    {
+      "id": "1732648220655",
+      "name": "shahrukh khan",
+      "role": "Employee",
+      "status": "Inactive"
+    },
+    {
+      "id": "1732652168039",
+      "name": "Salman khan",
+      "role": "Tech Lead",
+      "status": "Active"
+    },
+    {
+      "id": "1732698750633",
+      "name": "Garvit",
+      "role": "Founder",
+      "status": "Active"
+    }
+  ],
+  "roles": [
+    {
+      "id": "1732645975841",
+      "name": "Tech Lead",
+      "permissions": [
+        "Read",
+        "Write"
+      ]
+    },
+    {
+      "id": "1732651470655",
+      "name": "Admin",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete"
+      ]
+    },
+    {
+      "id": "1732651483215",
+      "name": "Editor",
+      "permissions": [
+        "Read",
+        "Write"
+      ]
+    },
+    {
+      "id": "1732652875499",
+      "name": "Employee",
+      "permissions": [
+        "Read",
+        "Write"
+      ]
+    },
+    {
+      "id": "1732699274900",
+      "name": "Founder",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete",
+        "Everything"
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "1",
+      "name": "Read"
+    },
+    {
+      "id": "2",
+      "name": "Write"
+    },
+    {
+      "id": "3",
+      "name": "Delete"
+    }
+  ]
+}
