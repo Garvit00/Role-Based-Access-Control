@@ -15,9 +15,10 @@ const RoleManagement = () => {
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+  const apiUrl = "https://role-based-access-controls-nzrm.onrender.com";
 
   useEffect(() => {
-    fetch("http://localhost:5000/roles")
+    fetch(`${apiUrl}/roles`)
       .then((res) => res.json())
       .then((data) => {
         setRoles(data);
@@ -55,7 +56,7 @@ const RoleManagement = () => {
 
   const handleSaveRole = () => {
     if (isEdit) {
-      fetch(`http://localhost:5000/roles/${currentRole.id}`, {
+      fetch(`${apiUrl}/roles/${currentRole.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentRole),
@@ -68,7 +69,7 @@ const RoleManagement = () => {
           setOpenSnackbar(true)
         });
     } else {
-      fetch("http://localhost:5000/roles", {
+      fetch(`${apiUrl}/roles`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...currentRole, id: Date.now().toString() }),
@@ -85,7 +86,7 @@ const RoleManagement = () => {
   };
 
   const handleDeleteRole = (id) => {
-    fetch(`http://localhost:5000/roles/${id}`, {
+    fetch(`${apiUrl}/roles/${id}`, {
       method: 'DELETE',
     }).then(() => {
       setRoles((prev) => prev.filter((role) => role.id !== id));

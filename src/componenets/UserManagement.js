@@ -15,15 +15,16 @@ const UserManagement = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
+  const apiUrl = "https://role-based-access-controls-nzrm.onrender.com";
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch(`${apiUrl}/users`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
         setFilteredUsers(data);
       });
 
-    fetch("http://localhost:5000/roles")
+    fetch(`${apiUrl}/roles`)
       .then((res) => res.json())
       .then((data) => setRoles(data.map((role) => role.name)));
   }, []);
@@ -56,7 +57,7 @@ const UserManagement = () => {
 
   const handleAddUser = () => {
     const newId = Date.now().toString();
-    fetch("http://localhost:5000/users", {
+    fetch(`${apiUrl}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +87,7 @@ const UserManagement = () => {
 
   const handleUpdateUser = () => {
     if (selectedUser) {
-      fetch(`http://localhost:5000/users/${selectedUser.id}`, {
+      fetch(`${apiUrl}/users/${selectedUser.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +115,7 @@ const UserManagement = () => {
   };
 
   const handleDeleteUser = (id) => {
-    fetch(`http://localhost:5000/users/${id}`, {
+    fetch(`${apiUrl}/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
