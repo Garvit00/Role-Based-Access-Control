@@ -42,7 +42,7 @@ git clone https://github.com/your-username/Role-Based-Access-Control.git
 2. Install dependencies:
 - (Assuming you have Node.js and npm installed)
 -  Run the below command to install all the required dependencies.
--  
+  
 ```bash
 cd Role-Based-Access-Control
 npm install
