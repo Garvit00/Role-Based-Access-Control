@@ -1,23 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Button,
-  Modal,
-  Box,
-  TextField,
-  Stack,
-  Select,
-  MenuItem,
-  InputLabel,
-  Snackbar,
-  Alert,
-  Avatar,
-} from "@mui/material";
+import {Table, TableBody, TableCell,TableContainer,TableHead,TableRow,Button,Modal,Box,TextField,Stack,Select,MenuItem,
+  InputLabel,Snackbar,Alert,Avatar,useMediaQuery,useTheme} from "@mui/material";
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -154,32 +137,50 @@ const UserManagement = () => {
       });
   };
 
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <div>
       <Stack
-        direction="row"
-        justifyContent="space-between"
-        sx={{ mb: 3, backgroundColor: "#f4ce8d", padding: "20px 20px" }}
+      direction={isSmallScreen ? 'column' : 'row'}
+      justifyContent={isSmallScreen ? 'center' : 'space-between'}
+      alignItems={isSmallScreen ? 'center' : 'flex-start'}
+      spacing={isSmallScreen ? 2 : 0}
+      sx={{
+        mb: 3,
+        backgroundColor: "#f4ce8d",
+        padding: "20px",
+      }}
+    >
+      <h2 style={{ margin: isSmallScreen ? '0 auto' : 0 }}>User Management</h2>
+      <Stack
+        direction={isSmallScreen ? 'column' : 'row'}
+        spacing={2}
+        sx={{ alignItems: 'center', marginTop: isSmallScreen ? 2 : 0 }}
       >
-        <h2>User Management</h2>
         <Button
           onClick={handleOpen}
           variant="contained"
           color="primary"
-          sx={{ width: "7rem" }}
+          sx={{
+            width: isSmallScreen ? '100%' : '7rem',
+          }}
         >
           Add User
         </Button>
-        <Stack direction="row" spacing={2} style={{margin:'7px'}}>
-          <TextField
-            label="Search Users"
-            variant="outlined"
-            value={searchQuery}
-            onChange={handleSearch}
-            sx={{backgroundColor: '#ebf1f1'}}
-          />
-        </Stack>
+        <TextField
+          label="Search Users"
+          variant="outlined"
+          value={searchQuery}
+          onChange={handleSearch}
+          sx={{
+            width: isSmallScreen ? '100%' : 'auto',
+            backgroundColor: '#ebf1f1',
+          }}
+        />
       </Stack>
+    </Stack>
       <TableContainer>
         <Table>
           <TableHead>

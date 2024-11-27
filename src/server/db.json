@@ -31,7 +31,8 @@
       "name": "Tech Lead",
       "permissions": [
         "Read",
-        "Write"
+        "Write",
+        "update"
       ]
     },
     {
