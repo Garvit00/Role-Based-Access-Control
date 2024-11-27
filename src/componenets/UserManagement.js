@@ -15,7 +15,7 @@ const UserManagement = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
-  const apiUrl = "https://role-based-access-controls-nzrm.onrender.com";
+  const apiUrl = "https://role-based-access-controls-awmd.onrender.com/";
   useEffect(() => {
     fetch(`${apiUrl}/users`)
       .then((res) => res.json())
