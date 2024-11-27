@@ -9,7 +9,7 @@ const RoleManagement = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [currentRole, setCurrentRole] = useState({ name: '', permissions: [] });
   const [permissions] = useState(['Read', 'Write', 'Delete']);
-  const [customPermission, setCustomPermission] = useState(''); // for custom attributes
+  const [customPermission, setCustomPermission] = useState('');
   const [isOtherSelected, setIsOtherSelected] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -129,22 +129,32 @@ const RoleManagement = () => {
 
   return (
     <div>
-      <Stack direction={isSmallScreen ? 'column' : 'row'} justifyContent={isSmallScreen ? 'center' : 'space-between'}
-      alignItems={isSmallScreen ? 'center' : 'flex-start'} spacing={isSmallScreen ? 2 : 0}
-      sx={{mb: 2, backgroundColor: '#f4ce8d', padding: '20px',}}>
-
+      <Stack 
+      direction={isSmallScreen ? 'column' : 'row'}
+      justifyContent={isSmallScreen ? 'center' : 'space-between'}
+      alignItems={isSmallScreen ? 'center' : 'flex-start'}
+      spacing={isSmallScreen ? 2 : 0} 
+      sx={{
+        mb: 3, 
+        backgroundColor:'#f4ce8d', 
+        padding: '20px'}}>
       <h2 style={{ margin: isSmallScreen ? '0 auto' : 0 }}>Role Management</h2>
-      <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2}
-        sx={{ alignItems: 'center', marginTop: isSmallScreen ? 2 : 0 }}>
-
-        <Button variant="contained" color="primary" onClick={handleOpenDialog}
-          sx={{width: isSmallScreen ? '100%' : '7rem'}}>Add Role</Button>
-
-        <TextField label="Search Roles" variant="outlined" value={searchQuery} onChange={handleSearch}
-          sx={{width: isSmallScreen ? '100%' : 'auto',backgroundColor: '#ebf1f1',}}/>
-          
+      <Button variant="contained" color="primary" onClick={() => handleOpenDialog()} 
+        sx={{ width: isSmallScreen ? "100%" : '7rem', }}>
+        Add Role
+      </Button>
+      <Stack direction={isSmallScreen ? 'column' :"row"} 
+      spacing={2} sx={{alignItems: 'center', marginTop:isSmallScreen ? 2 : 0}}>
+          <TextField
+            label="Search Roles"
+            variant="outlined"
+            value={searchQuery}
+            onChange={handleSearch}
+            sx={{width: isSmallScreen ? '100%' : 'auto', 
+              backgroundColor: '#ebf1f1',}}
+          />
+        </Stack>
       </Stack>
-    </Stack>
       <TableContainer>
         <Table>
           <TableHead>

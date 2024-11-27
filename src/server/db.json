@@ -45,14 +45,6 @@
       ]
     },
     {
-      "id": "1732651483215",
-      "name": "Editor",
-      "permissions": [
-        "Read",
-        "Write"
-      ]
-    },
-    {
       "id": "1732652875499",
       "name": "Employee",
       "permissions": [
@@ -68,6 +60,15 @@
         "Write",
         "Delete",
         "Everything"
+      ]
+    },
+    {
+      "id": "1732721355734",
+      "name": "Editor",
+      "permissions": [
+        "Read",
+        "Write",
+        "Delete"
       ]
     }
   ],

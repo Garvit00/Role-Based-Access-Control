@@ -154,21 +154,13 @@ const UserManagement = () => {
       }}
     >
       <h2 style={{ margin: isSmallScreen ? '0 auto' : 0 }}>User Management</h2>
+      <Button onClick={handleOpen} variant="contained" color="primary"
+         sx={{ width: isSmallScreen ? '100%' : '7rem',}}>Add User</Button>
       <Stack
         direction={isSmallScreen ? 'column' : 'row'}
         spacing={2}
         sx={{ alignItems: 'center', marginTop: isSmallScreen ? 2 : 0 }}
       >
-        <Button
-          onClick={handleOpen}
-          variant="contained"
-          color="primary"
-          sx={{
-            width: isSmallScreen ? '100%' : '7rem',
-          }}
-        >
-          Add User
-        </Button>
         <TextField
           label="Search Users"
           variant="outlined"
