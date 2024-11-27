@@ -38,7 +38,18 @@ and roles based on their names and permissions.
 ```bash
 git clone https://github.com/your-username/Role-Based-Access-Control.git
 
+````
+2. Install dependencies:
+- (Assuming you have Node.js and npm installed)
+-  Run the below command to install all the required dependencies.
+-  
+```bash
 cd Role-Based-Access-Control
 npm install
+````
 
+3. Start the application:
+   - Run the below command to start the project locally.
+```bash
 npm start
+````
