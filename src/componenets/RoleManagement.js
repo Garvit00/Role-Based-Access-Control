@@ -17,7 +17,7 @@ const RoleManagement = () => {
   const [snackbarMessage, setSnackbarMessage] = useState('');
 
   useEffect(() => {
-    fetch("http://localhost:3001/roles")
+    fetch("http://localhost:5000/roles")
       .then((res) => res.json())
       .then((data) => {
         setRoles(data);
@@ -55,7 +55,7 @@ const RoleManagement = () => {
 
   const handleSaveRole = () => {
     if (isEdit) {
-      fetch(`http://localhost:3001/roles/${currentRole.id}`, {
+      fetch(`http://localhost:5000/roles/${currentRole.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentRole),
@@ -68,7 +68,7 @@ const RoleManagement = () => {
           setOpenSnackbar(true)
         });
     } else {
-      fetch("http://localhost:3001/roles", {
+      fetch("http://localhost:5000/roles", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...currentRole, id: Date.now().toString() }),
@@ -85,7 +85,7 @@ const RoleManagement = () => {
   };
 
   const handleDeleteRole = (id) => {
-    fetch(`http://localhost:3001/roles/${id}`, {
+    fetch(`http://localhost:5000/roles/${id}`, {
       method: 'DELETE',
     }).then(() => {
       setRoles((prev) => prev.filter((role) => role.id !== id));

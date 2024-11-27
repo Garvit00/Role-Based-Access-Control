@@ -16,14 +16,14 @@ const UserManagement = () => {
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3001/users")
+    fetch("http://localhost:5000/users")
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
         setFilteredUsers(data);
       });
 
-    fetch("http://localhost:3001/roles")
+    fetch("http://localhost:5000/roles")
       .then((res) => res.json())
       .then((data) => setRoles(data.map((role) => role.name)));
   }, []);
@@ -56,7 +56,7 @@ const UserManagement = () => {
 
   const handleAddUser = () => {
     const newId = Date.now().toString();
-    fetch("http://localhost:3001/users", {
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const UserManagement = () => {
 
   const handleUpdateUser = () => {
     if (selectedUser) {
-      fetch(`http://localhost:3001/users/${selectedUser.id}`, {
+      fetch(`http://localhost:5000/users/${selectedUser.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const UserManagement = () => {
   };
 
   const handleDeleteUser = (id) => {
-    fetch(`http://localhost:3001/users/${id}`, {
+    fetch(`http://localhost:5000/users/${id}`, {
       method: "DELETE",
     })
       .then((res) => {
