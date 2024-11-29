@@ -294,13 +294,13 @@ const UserManagement = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: isSmallScreen ? '90%' : 400,
+            width: isSmallScreen ? '80%' : 400,
             bgcolor: "background.paper",
             border: "2px solid #000",
             boxShadow: 24,
             p: 4,
           }}
-        >
+          >
           <h3>Add New User</h3>
           <Stack spacing={3}>
             <TextField
@@ -343,13 +343,13 @@ const UserManagement = () => {
               <MenuItem value="Inactive">Inactive</MenuItem>
             </Select>
             <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2} justifyContent="space-between">
-            <Button variant="contained" color="primary" onClick={handleAddUser}  fullWidth={isSmallScreen}>
+              <Button variant="contained" color="primary" onClick={handleAddUser}  fullWidth={isSmallScreen}>
               Add User
-            </Button>
-            <Button onClick={handleClose} variant="contained" color="secondary"  fullWidth={isSmallScreen}>
+              </Button>
+              <Button onClick={handleClose} variant="contained" color="secondary"  fullWidth={isSmallScreen}>
               Cancel
-            </Button>
-          </Stack>
+              </Button>
+            </Stack>
           </Stack>
         </Box>
       </Modal>

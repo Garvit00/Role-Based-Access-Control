@@ -215,15 +215,15 @@ const RoleManagement = () => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: isSmallScreen ? '90%' : 400,
+            width: isSmallScreen ? '80%' : 400,
             bgcolor: 'background.paper',
             border: '2px solid #000',
             boxShadow: 24,
             p: 4,
           }}
-        >
-        <DialogTitle>{isEdit ? 'Edit Role' : 'Add Role'}</DialogTitle>
-        <Stack spacing={3}>
+          >
+          <DialogTitle>{isEdit ? 'Edit Role' : 'Add Role'}</DialogTitle>
+          <Stack spacing={3}>
           <TextField
             label="Role Name"
             value={currentRole.name}
@@ -269,15 +269,15 @@ const RoleManagement = () => {
               </Stack>
             </div>
           )}
-        </Stack>
-        <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2} justifyContent="space-between">
-          <Button onClick={handleSaveRole} variant="contained" color="primary" style={{marginTop:20}}  fullWidth={isSmallScreen}>
+          </Stack>
+          <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2} justifyContent="space-between">
+            <Button onClick={handleSaveRole} variant="contained" color="primary" style={{marginTop:20}}  fullWidth={isSmallScreen}>
             Save
-          </Button>
-          <Button onClick={handleCloseDialog} variant="contained" color="secondary"  fullWidth={isSmallScreen}>
-            Cancel
-          </Button>
-        </Stack>
+            </Button>
+            <Button onClick={handleCloseDialog} variant="contained" color="secondary" style={{marginTop:20}}  fullWidth={isSmallScreen}>
+              Cancel
+            </Button>
+          </Stack>
         </Box>
       </Modal>
       <Snackbar
