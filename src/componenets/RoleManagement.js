@@ -270,8 +270,7 @@ const RoleManagement = () => {
             </div>
           )}
         </Stack>
-        <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={3} justifyContent="space-between">
-
+        <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2} justifyContent="space-between">
           <Button onClick={handleSaveRole} variant="contained" color="primary" style={{marginTop:20}}  fullWidth={isSmallScreen}>
             Save
           </Button>
