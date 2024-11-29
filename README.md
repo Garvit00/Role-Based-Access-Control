@@ -51,5 +51,5 @@ npm install
 3. Start the application:
    - Run the below command to start the project locally.
 ```bash
-npm start
+npm run dev
 ````
