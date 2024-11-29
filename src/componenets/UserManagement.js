@@ -15,7 +15,7 @@ const UserManagement = () => {
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
-  const apiUrl = "https://role-based-access-controls-nzrm.onrender.com";
+  const apiUrl = "https://server-1rbb.onrender.com";
   useEffect(() => {
     fetch(`${apiUrl}/users`)
       .then((res) => res.json())
@@ -294,7 +294,7 @@ const UserManagement = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 400,
+            width: isSmallScreen ? '90%' : 400,
             bgcolor: "background.paper",
             border: "2px solid #000",
             boxShadow: 24,
@@ -342,13 +342,14 @@ const UserManagement = () => {
               <MenuItem value="Active">Active</MenuItem>
               <MenuItem value="Inactive">Inactive</MenuItem>
             </Select>
-
-            <Button variant="contained" color="primary" onClick={handleAddUser}>
+            <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2} justifyContent="space-between">
+            <Button variant="contained" color="primary" onClick={handleAddUser}  fullWidth={isSmallScreen}>
               Add User
             </Button>
-            <Button onClick={handleClose} variant="contained" color="secondary">
+            <Button onClick={handleClose} variant="contained" color="secondary"  fullWidth={isSmallScreen}>
               Cancel
             </Button>
+          </Stack>
           </Stack>
         </Box>
       </Modal>
@@ -368,7 +369,7 @@ const UserManagement = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 400,
+            width: isSmallScreen ? '90%' : 400,
             bgcolor: "background.paper",
             border: "2px solid #000",
             boxShadow: 24,
@@ -416,10 +417,12 @@ const UserManagement = () => {
               <MenuItem value="Active">Active</MenuItem>
               <MenuItem value="Inactive">Inactive</MenuItem>
             </Select>
+            <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={2} justifyContent="space-between">
             <Button
               variant="contained"
               color="primary"
               onClick={handleUpdateUser}
+              fullWidth={isSmallScreen}
             >
               Update User
             </Button>
@@ -427,9 +430,11 @@ const UserManagement = () => {
               onClick={handleCloseEdit}
               variant="contained"
               color="secondary"
+              fullWidth={isSmallScreen}
             >
               Cancel
             </Button>
+            </Stack>
           </Stack>
         </Box>
       </Modal>

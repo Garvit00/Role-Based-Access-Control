@@ -15,7 +15,7 @@ const RoleManagement = () => {
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
-  const apiUrl = "https://role-based-access-controls-nzrm.onrender.com";
+  const apiUrl = "https://server-1rbb.onrender.com";
 
   useEffect(() => {
     fetch(`${apiUrl}/roles`)
@@ -215,7 +215,7 @@ const RoleManagement = () => {
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            width: 400,
+            width: isSmallScreen ? '90%' : 400,
             bgcolor: 'background.paper',
             border: '2px solid #000',
             boxShadow: 24,
@@ -270,11 +270,12 @@ const RoleManagement = () => {
             </div>
           )}
         </Stack>
-        <Stack spacing={3}>
-          <Button onClick={handleSaveRole} variant="contained" color="primary" style={{marginTop:20}}>
+        <Stack direction={isSmallScreen ? 'column' : 'row'} spacing={3} justifyContent="space-between">
+
+          <Button onClick={handleSaveRole} variant="contained" color="primary" style={{marginTop:20}}  fullWidth={isSmallScreen}>
             Save
           </Button>
-          <Button onClick={handleCloseDialog} variant="contained" color="secondary">
+          <Button onClick={handleCloseDialog} variant="contained" color="secondary"  fullWidth={isSmallScreen}>
             Cancel
           </Button>
         </Stack>
